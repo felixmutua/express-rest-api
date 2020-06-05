@@ -16,21 +16,23 @@ router.get('/', function (req, res, next) {
 });
 /* GET user. */
 router.get('/:id', function (req, res, next) {
-    let usersArray = [];
     fs.readFile(usersData, "utf8", (err, data) => {
         if (err) {
             throw err;
         }
-        usersArray = JSON.parse(data);
+        console.log(req.params);
+        JSON.parse(data).map(function (user) {
+            if (user.id == req.params.id) {
+                res.send(user);
+                res.end();
+            }
+        });
+        res.send("user not found");
+
+
     });
-    usersArray.forEach(function (user) {
-        if (user.id === req.params.id) {
-            console.log(user);
-            res.send(user)
-        } else {
-            res.send("User Not Found");
-        }
-    });
+
+
 });
 
 
