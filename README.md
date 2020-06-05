@@ -25,7 +25,7 @@ To fire up the server, you'll need to start it with the start command:
  
  ### Accessing the server and returning data
  
- The server should be running by now, and you can visit `http://localhost:3001` to see it in action. 
+ The server should be running by now, and you can visit `http://localhost:3000` to see it in action. 
  
  Visit `http://localhost:3000/users` -- which will automatically issue a GET request to our running API server -- you'll see a simple JSON array populated with some dummy user data.
-
+ `http://localhost:3000/users/id` -- Returns a single JSON object of a single user based on supplied ID 
